@@ -8,14 +8,18 @@ public class PlayerMovement : MonoBehaviour
     public PlayerController controller;             //using our CharakterScript
     public Animator animator;
     float horizontalMove = 0f;
-    float climbing = 0f;
     public float runSpeed = 40f;
     bool jump = false;
     bool crouch = false;
+    
+    
+
+    
 
     // Update is called once per frame
     void Update()
     {
+        
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("velocityX", Mathf.Abs(horizontalMove));
@@ -34,18 +38,22 @@ public class PlayerMovement : MonoBehaviour
             crouch = true;
         }
         else if (Input.GetButtonUp("Crouch"))
+        {
             crouch = false;
+        }
     }
 
-    // Funktion die der Variablen "Jump" ein false gibt, wenn der Charakter landet
+    // Funktion die der Variablen "jump" ein false gibt, wenn der Charakter landet
     public void OnLanding ()
     {
         animator.SetBool("Jump", false);
+        animator.SetBool("grounded", true);
     }
     void FixedUpdate()
     {
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
+
     }
 
 }

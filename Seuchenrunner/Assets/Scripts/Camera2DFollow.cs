@@ -8,7 +8,8 @@ public class Camera2DFollow : MonoBehaviour
     public float damping = 1;                       //wie "Weich" die Kamera dem Ziel folgt
     public float lookAheadFactor = 3;               //wie weit die Kamera in die Gehrichtung schaut
     public float lookAheadReturnSpeed = 0.5f;       //wie schnell die Kamera beim stehenbleiben wieder auf das Ziel fokusiert
-    public float lookAheadMoveThreshold = 0.1f;     //
+    public float lookAheadMoveThreshold = 0.1f;
+    public float yPosRestriction = -1f;
     float offsetZ;
     Vector3 lastTargetPosition;
     Vector3 currentVelocity;
