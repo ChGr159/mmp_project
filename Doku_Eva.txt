@@ -1,0 +1,9 @@
+Gegner:
+
+- Neustart bei Collision mit tag "Player" (der Player muss dementsprechend getaggt sein)
+- SceneManager: 
+> die aktuelle Szene habe ich scene00 genannt, da muss eingefügt werden, wie deine erste bzw. Startszene heißt
+- ich habe das Neustart-Script mal drin gelassen, das kann man an die Killzone anfügen, wenn noch keins da ist
+- den Bereich, in dem sich die Drone bewegt, habe ich auf +3/-3 festgelegt, das ist im Script oder über den Unity-Editor anpassbar an die Umgebung
+- die Dronen sind mit einer random Geschwindigkeit initialisiert, bewegen sich also unterschiedlich
+- die "normale" Dronenanimation lässt die kreiseln - sie kreiseln UND flippen jetzt beim Richtungswechsel
