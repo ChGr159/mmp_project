@@ -9,7 +9,7 @@ public class Camera2DFollow : MonoBehaviour
     public float lookAheadFactor = 3;               //wie weit die Kamera in die Gehrichtung schaut
     public float lookAheadReturnSpeed = 0.5f;       //wie schnell die Kamera beim stehenbleiben wieder auf das Ziel fokusiert
     public float lookAheadMoveThreshold = 0.1f;
-    public float yPosRestriction = -1f;
+    public float yPosRestriction;
     float offsetZ;
     Vector3 lastTargetPosition;
     Vector3 currentVelocity;
@@ -41,6 +41,9 @@ public class Camera2DFollow : MonoBehaviour
 
         Vector3 aheadTargetPos = target.position + lookAheadPos + Vector3.forward * offsetZ;
         Vector3 newPos = Vector3.SmoothDamp(transform.position, aheadTargetPos, ref currentVelocity, damping);
+
+        newPos = new Vector3(newPos.x, Mathf.Clamp (newPos.y, yPosRestriction, Mathf.Infinity), newPos.z);
+
         transform.position = newPos;
         lastTargetPosition = target.position;
     }
