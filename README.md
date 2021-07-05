@@ -1,3 +1,8 @@
-# EndlessRunner
- 
-Ich bin zu doof für Github >.< https://github.com/evah93/EndlessRunner
+aktuelle Version
+
+-Lebenssystem hinzugefügt
+-Collectibles hinzugefügt
+-Endscreen hinzugefügt
+-Startmenü hinzugefügt
+
+Aktuellster Stand des Projektes

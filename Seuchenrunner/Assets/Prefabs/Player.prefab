@@ -241,39 +241,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 4529545005081757458}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2161523491531fe4db9412015eeae465, type: 3}
+  m_Script: {fileID: 11500000, guid: 30ac6e05ba66e0e47b53cbfa0f858ad7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_JumpForce: 650
+  m_JumpForce: 400
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
-  m_ClimbingSpeed: 6
-  m_AirControl: 1
+  m_ClimbingSpeed: 1
+  m_AirControl: 0
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 65
-  m_GroundCheck: {fileID: 4529545003370480080}
-  m_CeilingCheck: {fileID: 4529545004451244787}
-  m_CrouchDisableCollider: {fileID: 4529545005081757459}
-  whatIsLadder:
-    serializedVersion: 2
-    m_Bits: 64
-  Gravity: 2
+    m_Bits: 0
+  m_GroundCheck: {fileID: 0}
+  m_CeilingCheck: {fileID: 0}
+  m_CrouchDisableCollider: {fileID: 0}
+  m_Life: 3
   OnLandEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4529545005081757448}
-        m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: OnLanding
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnCrouchEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -289,6 +274,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bdf97270872c5247b9d885347f5fe96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ClimbingSpeed: 0
   controller: {fileID: 4529545005081757460}
   animator: {fileID: 4529545005081757462}
   runSpeed: 40
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 0
