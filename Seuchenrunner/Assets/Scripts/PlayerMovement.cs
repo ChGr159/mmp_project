@@ -11,15 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public float runSpeed = 40f;
     bool jump = false;
     bool crouch = false;
-    
-    
-
-    
+   
 
     // Update is called once per frame
     void Update()
     {
-        
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("velocityX", Mathf.Abs(horizontalMove));
@@ -48,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     {
         animator.SetBool("Jump", false);
         animator.SetBool("grounded", true);
+
     }
     void FixedUpdate()
     {

@@ -6,7 +6,6 @@ public class PlayerController : MonoBehaviour
 	[SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
-	[Range(0, 10)] [SerializeField] private float m_ClimbingSpeed = 1;
 	[SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
 	[SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
 	[SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
@@ -19,13 +18,7 @@ public class PlayerController : MonoBehaviour
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
-	private bool Climbing;
-	private float distance = 5f;
-	private float inputHorizontal;
-	private float inputVertical;
-	public LayerMask whatIsLadder;
-	public float Gravity = 3f;
-	public Animator animator;
+
 
 	[Header("Events")]
 	[Space]
@@ -66,33 +59,11 @@ public class PlayerController : MonoBehaviour
 					OnLandEvent.Invoke();
 			}
 		}
-		RaycastHit2D hitInfo = Physics2D.Raycast(transform.position, Vector2.up, distance, whatIsLadder);
-		if (hitInfo.collider != null)
-		{
-			if (Input.GetButtonDown("Vertical"))
-			{
-				Climbing = true;
-				animator.SetBool("Climb", true);
-			}
 
-			else if (Input.GetButtonDown("Horizontal"))
-			{
-				Climbing = false;
-				animator.SetBool("Climb", false);
-			}
-		}
-		if (Climbing == true && hitInfo.collider != null)
-		{
-			inputVertical = Input.GetAxisRaw("Vertical");
-			m_Rigidbody2D.velocity = new Vector2(0, inputVertical * m_ClimbingSpeed);
-			m_Rigidbody2D.gravityScale = 0;
-		}
-		else
-		{
-			m_Rigidbody2D.gravityScale = Gravity;
-		}
-		
 	}
+
+
+
 	public void Move(float move, bool crouch, bool jump)
 	{
 		// If crouching, check to see if the character can stand up
