@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
     [SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
 
-    [SerializeField] private int m_Life = 3;                                   // Life of the player
+    //[SerializeField] private int m_Life = 3;                                   // Life of the player
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
     private bool m_Grounded;            // Whether or not the player is grounded.
     const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
@@ -35,7 +35,8 @@ public class PlayerController : MonoBehaviour
 
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
-
+    
+    
     private void Start()
     {
         //CollectibleCounter initialisiert
@@ -158,21 +159,14 @@ public class PlayerController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)    // Methode wird aufgerufen wenn man ein anderes Object trifft;
+    private void OnTriggerEnter2D(Collider2D other)         // Methode wird aufgerufen wenn man ein anderes Object trifft;
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("HIT!!!!" + m_Life);
-            Vector2 startPos = new Vector2(-50, 21);
-            m_Rigidbody2D.position = startPos;
-
-            m_Life -= 1;
-            Debug.Log("Er hat " + m_Life);            // Ein Leben weg;
-            if (m_Life == 0)
-            {
-                Debug.Log("GameOver");                // Fangen wir das Spiel von vorne;
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-            }
+            Debug.Log("HIT!!!!");
+            
+            GameObject player = GameObject.FindWithTag("Player");   //Sucht nach dem GameObject, das als Player markiert ist
+            GameMaster.KillPlayer(player);                  // ruft Funktion des GameObjects "GameMaster" auf die den Spieler tötet und Respawnen lässt
         }
         else if (other.tag == "Collectible")
         {
@@ -182,8 +176,5 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Score: " + collCounter);
         }
     }
-    void OnGUI()                                    //Anzeige die Anzahl der Leben;
-    {
-        GUI.Box(new Rect(Screen.width - 100, 30, 90, 30), "Lives:" + m_Life);
-    }
+    
 }
