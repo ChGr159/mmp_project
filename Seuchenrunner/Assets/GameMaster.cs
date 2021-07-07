@@ -21,6 +21,11 @@ public class GameMaster : MonoBehaviour
     public Transform playerPrefab;
     public Transform spawnPoint;
 
+    public static void CheckPoint(Transform checkpoint)
+    {
+        gm.spawnPoint = checkpoint;
+    }
+
     public void RespawnPlayer ()
     {
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);

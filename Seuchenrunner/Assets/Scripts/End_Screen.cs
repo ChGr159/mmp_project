@@ -20,4 +20,8 @@ public class End_Screen : MonoBehaviour
         SceneManager.LoadScene("BaseCityGame");
 
     }
+    public void BackToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
 }

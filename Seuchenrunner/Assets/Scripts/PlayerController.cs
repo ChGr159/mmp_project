@@ -159,21 +159,29 @@ public class PlayerController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    private void OnTriggerEnter2D(Collider2D other)         // Methode wird aufgerufen wenn man ein anderes Object trifft;
+    private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("HIT!!!!");
-            
+
             GameObject player = GameObject.FindWithTag("Player");   //Sucht nach dem GameObject, das als Player markiert ist
             GameMaster.KillPlayer(player);                  // ruft Funktion des GameObjects "GameMaster" auf die den Spieler tötet und Respawnen lässt
         }
-        else if (other.tag == "Collectible")
+    }
+    
+    private void OnTriggerEnter2D(Collider2D other)         // Methode wird aufgerufen wenn man ein anderes Object trifft;
+    {
+        if (other.tag == "Collectible")
         {
             collCounter++;
             Destroy(other.gameObject);
             scoreText.text = "Score: " + collCounter.ToString();
             Debug.Log("Score: " + collCounter);
+        }
+        else
+        {
+            return;
         }
     }
     
