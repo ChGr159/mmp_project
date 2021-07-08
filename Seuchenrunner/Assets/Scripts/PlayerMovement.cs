@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public float ClimbingSpeed;
@@ -18,33 +19,36 @@ public class PlayerMovement : MonoBehaviour
     private float inputVertical;
     private float Gravity;
     public LayerMask whatIsLadder;
-    
-    
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         Gravity = rb.gravityScale;
     }
 
-    
+
 
     // Update is called once per frame
     void Update()
     {
-        
+
         horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
         animator.SetFloat("velocityX", Mathf.Abs(horizontalMove));
 
 
-        // Lässt unserern Charakter springen
+        // Lï¿½sst unserern Charakter springen
         if (Input.GetButtonDown("Jump"))
         {
+
             jump = true;
+            SoundManager.PlaySound("jump");                        //Musik beim Springen
             animator.SetBool("Jump", true);
+
         }
 
-        // Lässt unseren Charakter sich hinknien
+        // Lï¿½sst unseren Charakter sich hinknien
         if (Input.GetButtonDown("Crouch"))
         {
             crouch = true;
@@ -56,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Funktion die der Variablen "jump" ein false gibt, wenn der Charakter landet
-    public void OnLanding ()
+    public void OnLanding()
     {
         animator.SetBool("Jump", false);
         animator.SetBool("grounded", true);

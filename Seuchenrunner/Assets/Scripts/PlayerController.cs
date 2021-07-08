@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
@@ -35,8 +36,8 @@ public class PlayerController : MonoBehaviour
 
     public BoolEvent OnCrouchEvent;
     private bool m_wasCrouching = false;
-    
-    
+
+
     private void Start()
     {
         //CollectibleCounter initialisiert
@@ -140,6 +141,7 @@ public class PlayerController : MonoBehaviour
         // If the player should jump...
         if (m_Grounded && jump)
         {
+
             // Add a vertical force to the player.
             m_Grounded = false;
             m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
@@ -164,25 +166,27 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.tag == "Enemy")
         {
             Debug.Log("HIT!!!!");
-
+            SoundManager.PlaySound("hit");               //Musik beim Treffen den Gegner;
             GameObject player = GameObject.FindWithTag("Player");   //Sucht nach dem GameObject, das als Player markiert ist
-            GameMaster.KillPlayer(player);                  // ruft Funktion des GameObjects "GameMaster" auf die den Spieler tötet und Respawnen lässt
+            GameMaster.KillPlayer(player);                  // ruft Funktion des GameObjects "GameMaster" auf die den Spieler tï¿½tet und Respawnen lï¿½sst
         }
     }
-    
+
     private void OnTriggerEnter2D(Collider2D other)         // Methode wird aufgerufen wenn man ein anderes Object trifft;
     {
         if (other.tag == "Collectible")
         {
             collCounter++;
+            SoundManager.PlaySound("coins");                //Musik bei Sammeln der MÃ¼nzen ;
             Destroy(other.gameObject);
             scoreText.text = "Score: " + collCounter.ToString();
             Debug.Log("Score: " + collCounter);
+
         }
         else
         {
             return;
         }
     }
-    
+
 }

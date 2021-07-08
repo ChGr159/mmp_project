@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameMaster : MonoBehaviour
 {
     [SerializeField] public int m_Life = 3;
-    
+
 
 
     public static GameMaster gm;
-    
+    public static Text livesText;
+
     void Start()
     {
         if (gm == null)
@@ -26,27 +28,25 @@ public class GameMaster : MonoBehaviour
         gm.spawnPoint = checkpoint;
     }
 
-    public void RespawnPlayer ()
+    public void RespawnPlayer()
     {
         Instantiate(playerPrefab, spawnPoint.position, spawnPoint.rotation);
     }
-    public static void KillPlayer (GameObject player)
+    public static void KillPlayer(GameObject player)
     {
         Destroy(player.gameObject);
         gm.m_Life -= 1;
-        Debug.Log("Er hat " + gm.m_Life);                       // Ein Leben weg;
-        
+        Debug.Log("Er hat " + gm.m_Life);
+        livesText = GameObject.Find("LivesText").GetComponent<Text>();  //Anzeige die Anzahl der Leben;
+        livesText.text = "Lives: " + gm.m_Life;                         // Ein Leben weg;
+
         if (gm.m_Life == 0)
         {
-            Debug.Log("GameOver");                // Fangen wir das Spiel von vorne;
+            Debug.Log("GameOver");                                      // Fangen wir das Spiel von vorne;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
         gm.RespawnPlayer();
-        
-    }
-    void OnGUI()                                    //Anzeige die Anzahl der Leben;
-    {
-        GUI.Box(new Rect(Screen.width - 100, 30, 90, 30), "Lives:" + m_Life);
+
     }
 }
 
