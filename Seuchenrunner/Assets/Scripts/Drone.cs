@@ -27,7 +27,7 @@ public class Drone : MonoBehaviour
         startPos = transform.position;
 
         //zufällige Geschwindigkeit
-        speed = Random.Range(5f, 15f);
+        speed = Random.Range(5f, 10f);
 
         tempPos = startPos;
 

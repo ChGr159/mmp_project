@@ -11,11 +11,11 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - Ladder
-  - 
+  - Trigger
   - 
   - 
   - 
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: WorldMap
     uniqueID: 505090005
+    locked: 0
+  - name: Enemy
+    uniqueID: 186303197
     locked: 0
   - name: Player
     uniqueID: 367842859

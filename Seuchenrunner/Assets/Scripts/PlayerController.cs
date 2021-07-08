@@ -161,7 +161,7 @@ public class PlayerController : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionStay2D(Collision2D other)
     {
         if (other.gameObject.tag == "Enemy")
         {

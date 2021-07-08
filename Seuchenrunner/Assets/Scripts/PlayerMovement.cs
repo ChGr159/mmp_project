@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     private float inputHorizontal;
     private float inputVertical;
     private float Gravity;
-    public LayerMask whatIsLadder;
 
 
     private void Awake()
