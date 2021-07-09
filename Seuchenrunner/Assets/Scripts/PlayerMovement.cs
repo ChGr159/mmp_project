@@ -11,6 +11,9 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     public float runSpeed = 40f;
     bool jump = false;
+
+    bool jumping = false; // springt er gerade im Moment
+
     bool crouch = false;
     private Rigidbody2D rb;
     private bool Climbing;
@@ -41,9 +44,12 @@ public class PlayerMovement : MonoBehaviour
         // L�sst unserern Charakter springen
         if (Input.GetButtonDown("Jump"))
         {
-
+            if (!jumping)
+            {
+                SoundManager.PlaySound("jump");   //Musik beim Springen
+            }
             jump = true;
-            SoundManager.PlaySound("jump");                        //Musik beim Springen
+            jumping = true;
             animator.SetBool("Jump", true);
 
         }
@@ -62,6 +68,8 @@ public class PlayerMovement : MonoBehaviour
     // Funktion die der Variablen "jump" ein false gibt, wenn der Charakter landet
     public void OnLanding()
     {
+        Debug.Log("Landed");
+        jumping = false;
         animator.SetBool("Jump", false);
         animator.SetBool("grounded", true);
     }
