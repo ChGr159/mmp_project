@@ -1,5 +1,8 @@
 aktuelle Version
 
+Random-Geschwindikeit der Dronen entfernt, damit im 2. Level der Schwierigkeitsgrad der Gegner besser angepasst werden können
+- Geschwindikeit der Dronen in Level 1 muss noch angepasst werden
+
 Angefangen das 2. Level zu bauen.
 
 
