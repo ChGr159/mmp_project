@@ -7,9 +7,6 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
     [SerializeField] public int m_Life = 3;
-
-
-
     public static GameMaster gm;
     public static Text livesText;
 

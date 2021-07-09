@@ -179,6 +179,7 @@ public class PlayerController : MonoBehaviour
             collCounter++;
             SoundManager.PlaySound("coins");                //Musik bei Sammeln der Münzen ;
             Destroy(other.gameObject);
+            scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
             scoreText.text = "Score: " + collCounter.ToString();
             Debug.Log("Score: " + collCounter);
 

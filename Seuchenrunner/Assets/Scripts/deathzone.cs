@@ -8,7 +8,7 @@ public class deathzone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -16,6 +16,7 @@ public class deathzone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+            Debug.Log("Player stirbt in DeathZone");
             GameMaster.KillPlayer(other.gameObject);            //ruft die Kill Funktion in der Klasse GameMaster auf
         }
     }
