@@ -78,7 +78,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 367842859
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 041f56d6a022446e8b09e8a5be7f79ab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -196,7 +196,6 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 1964635031399566662}
   m_CeilingCheck: {fileID: 1964635030321964645}
   m_CrouchDisableCollider: {fileID: 1964635029688290181}
-  m_Life: 3
   scoreText: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
@@ -232,9 +231,6 @@ MonoBehaviour:
   controller: {fileID: 1964635029688290178}
   animator: {fileID: 1964635029688290176}
   runSpeed: 50
-  whatIsLadder:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!82 &1964635030442349627
 AudioSource:
   m_ObjectHideFlags: 0
