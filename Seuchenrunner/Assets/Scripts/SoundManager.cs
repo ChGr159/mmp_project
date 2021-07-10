@@ -27,7 +27,7 @@ public class SoundManager : MonoBehaviour
     }
     public static void PlaySound(string clip)
     {
-        Debug.Log("Playing sound " + clip);
+        //Debug.Log("Playing sound " + clip);
         switch (clip)
         {
             case "jump":
