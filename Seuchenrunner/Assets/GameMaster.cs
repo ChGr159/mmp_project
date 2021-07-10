@@ -43,7 +43,7 @@ public class GameMaster : MonoBehaviour
         if (gm.m_Life == 0)
         {
             Debug.Log("GameOver");                                      // Fangen wir das Spiel von vorne;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("GameOver");
         }
         gm.RespawnPlayer();
 
