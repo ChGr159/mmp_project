@@ -1,7 +1,14 @@
+
+#Update Eva: Ich trau mich das echt nicht, hier drauf zu schieben - ich glaube, da mache ich irgendwas total kaputt
+Mein Github lässt mich es nie in diese Ordner hier schieben und auch nichts mehr auf meinen Branch (?!)
+https://github.com/evah93/Seuchenrunner
+Im Readme-File in dem Ordner habe ich einmal alle Skripte zusammengefasst, was die tun, tw. wie die funktionieren - falls ihr das braucht
+
 aktuelle Version
 
-Random-Geschwindikeit der Dronen entfernt, damit im 2. Level der Schwierigkeitsgrad der Gegner besser angepasst werden können
+Random-Geschwindikeit der Dronen entfernt, damit im 2. Level der Schwierigkeitsgrad der Gegner besser angepasst werden können 
 - Geschwindikeit der Dronen in Level 1 muss noch angepasst werden
+#hab ich im ersten Level neu eingestellt
 
 Player angepasst:
 - hat jetzt nurnoch einen Collider, da manchmal ein Hit einer Drone als 2 treffer gezählt hat
@@ -42,4 +49,6 @@ Bugfixes:
 
 TODO:
 -Gegner 2
+#erledigt, kann schießen und explodiert
 -Sound biem Schießen
+#fehlt noch
