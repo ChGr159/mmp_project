@@ -14,6 +14,7 @@ public class Camera2DFollow : MonoBehaviour
     Vector3 lastTargetPosition;
     Vector3 currentVelocity;
     Vector3 lookAheadPos;
+    float nextTimeToSearch = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,12 @@ public class Camera2DFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (target == null)
+        {
+            FindPlayer();                   //falls das target verloren gegangen sein sollte wird die Funktion FindPlayer() aufgerufen
+            return;
+        }
+
         float xMoveDelta = (target.position - lastTargetPosition).x;
 
         bool updateLookAheadTarget = Mathf.Abs(xMoveDelta) > lookAheadMoveThreshold;
@@ -46,5 +53,17 @@ public class Camera2DFollow : MonoBehaviour
 
         transform.position = newPos;
         lastTargetPosition = target.position;
+    }
+    void FindPlayer()
+    {
+        if (nextTimeToSearch <= Time.time)
+        {
+            GameObject searchresult = GameObject.FindGameObjectWithTag("Player");
+            if (searchresult != null)                             //Falls ein GameObject gefunden wird, wird ein neues Ziel für die Kamera gesetzt
+            {
+                target = searchresult.transform;                    
+            }
+            nextTimeToSearch = Time.time + 0.5f;                  //Die Zeit zum Suchen wird erhöht, falls eine erneute Suche notwendig ist
+        }
     }
 }

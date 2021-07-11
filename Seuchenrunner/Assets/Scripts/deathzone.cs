@@ -16,7 +16,7 @@ public class deathzone : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            GameMaster.KillPlayer(other.gameObject);            //ruft die Kill Funktion in der Klasse GameMaster auf
         }
     }
 }

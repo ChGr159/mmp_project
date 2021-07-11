@@ -27,7 +27,7 @@ public class Drone : MonoBehaviour
         startPos = transform.position;
 
         //zufällige Geschwindigkeit
-        speed = Random.Range(5f, 15f);
+        //speed = Random.Range(5f, 10f);
 
         tempPos = startPos;
 
@@ -58,12 +58,12 @@ public class Drone : MonoBehaviour
         tempPos = newPos;
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    /*void OnCollisionEnter2D(Collision2D other)
     {
         //bei Berührung mit Player Neustart (des aktuellen Levels)
         if (other.gameObject.tag == "Player")
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-    }
+    }*/
 }
