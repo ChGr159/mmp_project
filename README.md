@@ -1,3 +1,8 @@
+Merge-Version: Aaaalso, das Mergen klappt bei mir einfach nicht, ich weiß nicht, was ich falsch mache ...
+Aktuelle Version ("gemergt"): https://github.com/evah93/Seuchenrunner_1207
+Nochmal aktuelle Version: https://syncandshare.lrz.de/getlink/fiECtFDxLkNc5VnhzWkDhuzb/1207.zip
+Was ich noch geändert habe, steht im Readme - die Enemy2s sind im Level 1 gar keine Prefab-Copies, oder? Die sind nämlich animiert, aber das Prefab hatte, bevor ich daran rumgemacht hab, gar keinen Animator - die müsste man, glaube ich, neu einfügen, aber das habe ich noch nicht gemacht ...
+
 
 #Update Eva: Ich trau mich das echt nicht, hier drauf zu schieben - ich glaube, da mache ich irgendwas total kaputt
 Mein Github lässt mich es nie in diese Ordner hier schieben und auch nichts mehr auf meinen Branch (?!)
