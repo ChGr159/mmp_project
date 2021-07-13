@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class GameMaster : MonoBehaviour
 {
     [SerializeField] public int m_Life = 3;
-
+    //public int collCounter;
+    //public Text scoreText;
 
 
     public static GameMaster gm;
@@ -15,6 +16,7 @@ public class GameMaster : MonoBehaviour
 
     void Start()
     {
+        //collCounter = 0;
         if (gm == null)
         {
             gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
@@ -48,5 +50,39 @@ public class GameMaster : MonoBehaviour
         gm.RespawnPlayer();
 
     }
+
+    /*public static void IncrementScore (GameObject other)
+        if (other.tag == "Collectible")
+        {
+            collCounter++;
+            SoundManager.PlaySound("coins");                //Musik bei Sammeln der Münzen ;
+            Destroy(other.gameObject);
+            scoreText.text = "Score: " + collCounter.ToString();
+            Debug.Log("Score: " + collCounter);
+
+        }
+        else
+        {
+            return;
+        }
+
+        if(other.tag == "Levelende")
+        {
+            if(m_Life == 3)
+            {
+                collCounter =+ 10;
+                scoreText.text = "Bonus! New score: " + collCounter.ToString();
+                Debug.Log("Score: " + collCounter);
+            }
+
+            else
+            {
+                return;
+            }
+        }
+        else
+        {
+            return;
+        }*/
 }
 

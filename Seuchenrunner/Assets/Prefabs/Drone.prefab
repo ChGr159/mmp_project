@@ -94,7 +94,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1199856177756407096}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 114d2ca05fc45114094b1b2d23e5ba71, type: 2}
   m_CullingMode: 0
@@ -154,6 +154,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b4e5da3a2b9d4048b3b673ea3e9dda9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  patrolrange: 15
+  speed: 2
+  patrolrange: 10
   sr: {fileID: 0}

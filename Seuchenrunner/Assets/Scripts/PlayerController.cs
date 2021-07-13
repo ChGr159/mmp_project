@@ -7,14 +7,12 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float m_JumpForce = 400f;                          // Amount of force added when the player jumps.
-    [Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;          // Amount of maxSpeed applied to crouching movement. 1 = 100%
     [Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;  // How much to smooth out the movement
     [Range(0, 10)] [SerializeField] private float m_ClimbingSpeed = 1;
     [SerializeField] private bool m_AirControl = false;                         // Whether or not a player can steer while jumping;
     [SerializeField] private LayerMask m_WhatIsGround;                          // A mask determining what is ground to the character
     [SerializeField] private Transform m_GroundCheck;                           // A position marking where to check if the player is grounded.
-    [SerializeField] private Transform m_CeilingCheck;                          // A position marking where to check for ceilings
-    [SerializeField] private Collider2D m_CrouchDisableCollider;                // A collider that will be disabled when crouching
+    public GameObject impactEffect;
 
     //[SerializeField] private int m_Life = 3;                                   // Life of the player
     const float k_GroundedRadius = .2f; // Radius of the overlap circle to determine if grounded
@@ -34,8 +32,6 @@ public class PlayerController : MonoBehaviour
     [System.Serializable]
     public class BoolEvent : UnityEvent<bool> { }
 
-    public BoolEvent OnCrouchEvent;
-    private bool m_wasCrouching = false;
 
 
     private void Start()
@@ -51,8 +47,6 @@ public class PlayerController : MonoBehaviour
         if (OnLandEvent == null)
             OnLandEvent = new UnityEvent();
 
-        if (OnCrouchEvent == null)
-            OnCrouchEvent = new BoolEvent();
     }
 
     private void FixedUpdate()
@@ -75,50 +69,13 @@ public class PlayerController : MonoBehaviour
 
 
     }
-    public void Move(float move, bool crouch, bool jump)
+    public void Move(float move, bool jump)
     {
-        // If crouching, check to see if the character can stand up
-        if (!crouch)
-        {
-            // If the character has a ceiling preventing them from standing up, keep them crouching
-            if (Physics2D.OverlapCircle(m_CeilingCheck.position, k_CeilingRadius, m_WhatIsGround))
-            {
-                crouch = true;
-            }
-        }
 
         //only control the player if grounded or airControl is turned on
         if (m_Grounded || m_AirControl)
         {
 
-            // If crouching
-            if (crouch)
-            {
-                if (!m_wasCrouching)
-                {
-                    m_wasCrouching = true;
-                    OnCrouchEvent.Invoke(true);
-                }
-
-                // Reduce the speed by the crouchSpeed multiplier
-                move *= m_CrouchSpeed;
-
-                // Disable one of the colliders when crouching
-                if (m_CrouchDisableCollider != null)
-                    m_CrouchDisableCollider.enabled = false;
-            }
-            else
-            {
-                // Enable the collider when not crouching
-                if (m_CrouchDisableCollider != null)
-                    m_CrouchDisableCollider.enabled = true;
-
-                if (m_wasCrouching)
-                {
-                    m_wasCrouching = false;
-                    OnCrouchEvent.Invoke(false);
-                }
-            }
 
             // Move the character by finding the target velocity
             Vector3 targetVelocity = new Vector2(move * 10f, m_Rigidbody2D.velocity.y);
@@ -174,6 +131,8 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)         // Methode wird aufgerufen wenn man ein anderes Object trifft;
     {
+        //GameMaster.IncrementScore(other);
+        //Rest hier raus -- noch nicht gescheit getestet
         if (other.tag == "Collectible")
         {
             collCounter++;
@@ -182,6 +141,13 @@ public class PlayerController : MonoBehaviour
             scoreText.text = "Score: " + collCounter.ToString();
             Debug.Log("Score: " + collCounter);
 
+        }
+        else if (other.tag == "Bullet")
+        {
+            GameMaster.KillPlayer(other.gameObject);
+            Instantiate(impactEffect, transform.position, transform.rotation);
+
+            Destroy(gameObject);
         }
         else
         {

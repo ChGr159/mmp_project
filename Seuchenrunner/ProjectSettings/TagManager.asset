@@ -8,6 +8,7 @@ TagManager:
   - Collectible
   - GM
   - Enemy2
+  - Bullet
   layers:
   - Default
   - TransparentFX

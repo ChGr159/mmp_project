@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BaseCityGame.unity
     guid: 91f46c10d0f80e6478619e4223afebe9
+  - enabled: 1
+    path: Assets/Scenes/Level2.unity
+    guid: 44eac204babc86f4c907227190d06d7e
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: f6a5b9fac45653f4ca9c7c6e39ccc572
   m_configObjects: {}

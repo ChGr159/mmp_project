@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 1964635029688290177}
   - component: {fileID: 1964635029688290176}
   - component: {fileID: 1964635029688290179}
-  - component: {fileID: 1964635029688290181}
   - component: {fileID: 1964635029688290204}
   - component: {fileID: 1964635029688290178}
   - component: {fileID: 1964635029688290206}
@@ -35,7 +34,6 @@ Transform:
   m_LocalPosition: {x: -50, y: 21.35, z: 1}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
-  - {fileID: 1964635030321964645}
   - {fileID: 1964635031399566662}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -131,32 +129,6 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!61 &1964635029688290181
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964635029688290180}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 6200000, guid: 5fac5cb69bc49d14ebd3b853593dbf5f, type: 2}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.011996582, y: 0.045879528}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.71, y: 0.67}
-    newSize: {x: 1.28, y: 1.26}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.2984972, y: 0.16824093}
-  m_EdgeRadius: 0
 --- !u!70 &1964635029688290204
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,8 +142,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.025610447, y: -0.17859612}
-  m_Size: {x: 0.10723591, y: 0.3044658}
+  m_Offset: {x: 0.024795055, y: -0.10034412}
+  m_Size: {x: 0.21483326, y: 0.4609698}
   m_Direction: 0
 --- !u!114 &1964635029688290178
 MonoBehaviour:
@@ -186,7 +158,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_JumpForce: 650
-  m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_ClimbingSpeed: 6
   m_AirControl: 1
@@ -194,8 +165,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   m_GroundCheck: {fileID: 1964635031399566662}
-  m_CeilingCheck: {fileID: 1964635030321964645}
-  m_CrouchDisableCollider: {fileID: 1964635029688290181}
+  impactEffect: {fileID: 7910686630262095794, guid: 4349cfcff08c92943b3fdf7a2045cac5, type: 3}
   scoreText: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
@@ -212,9 +182,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &1964635029688290206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +198,9 @@ MonoBehaviour:
   controller: {fileID: 1964635029688290178}
   animator: {fileID: 1964635029688290176}
   runSpeed: 50
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!82 &1964635030442349627
 AudioSource:
   m_ObjectHideFlags: 0
@@ -327,36 +297,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1964635030321964644
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1964635030321964645}
-  m_Layer: 13
-  m_Name: CeilingCheck
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1964635030321964645
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964635030321964644}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.002, y: 0.08, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1964635029688290207}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1964635031399566665
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,5 +325,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1964635029688290207}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
