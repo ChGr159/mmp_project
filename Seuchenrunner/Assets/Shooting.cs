@@ -14,7 +14,6 @@ public class Shooting : MonoBehaviour
     public float fireRate;
     private float nextShot = 0f;
     private bool m_FacingRight = true;  // For determining which way the go is currently facing.
-    private float direction = 1f;
 
     void Update()
     {

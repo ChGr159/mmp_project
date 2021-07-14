@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawnpoint : MonoBehaviour
 {
     
-    public Transform spawnposition;
+    private Transform spawnposition;
     // Start is called before the first frame update
     private void Awake()
     {

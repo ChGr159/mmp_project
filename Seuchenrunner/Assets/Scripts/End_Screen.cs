@@ -14,7 +14,10 @@ public class End_Screen : MonoBehaviour
             Endscrn.gameObject.SetActive(true);
         }
     }
-
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("Level2");
+    }
     public void RestartButton()
     {
         SceneManager.LoadScene("BaseCityGame");
