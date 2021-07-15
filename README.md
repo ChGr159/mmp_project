@@ -1,6 +1,8 @@
 aktuelle Version
 
 ----- Update -------
+Tutorial im Hauptmenü hinzugefügt
+-	kleine Erklärung und eine kleine "Geschichte" hinzugefügt, was im Spiel gemacht werden soll
 
 Level2:
 -	LevelDesign erweitert
