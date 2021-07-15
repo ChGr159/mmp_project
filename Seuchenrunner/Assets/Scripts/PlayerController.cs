@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D m_Rigidbody2D;
     private bool m_FacingRight = true;  // For determining which way the player is currently facing.
     private Vector3 m_Velocity = Vector3.zero;
-    private int collCounter;
+    private static int collCounter = 0;
     public Text scoreText;
 
     [Header("Events")]
@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         //CollectibleCounter initialisiert
-        collCounter = 0;
+        //collCounter = 0;
     }
 
     private void Awake()
@@ -137,8 +137,16 @@ public class PlayerController : MonoBehaviour
             collCounter++;
             SoundManager.PlaySound("coins");                //Musik bei Sammeln der Münzen ;
             Destroy(other.gameObject);
+            if (collCounter == 5)
+            {
+                GameMaster.GiveLife();
+                collCounter = 0;
+            }
+            scoreText = GameObject.Find("ScoreText").GetComponent<Text>();
             scoreText.text = "Score: " + collCounter.ToString();
             Debug.Log("Score: " + collCounter);
+
+
 
         }
         else if (other.tag == "Bullet")

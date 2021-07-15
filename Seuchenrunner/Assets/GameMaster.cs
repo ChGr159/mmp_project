@@ -50,6 +50,14 @@ public class GameMaster : MonoBehaviour
         gm.RespawnPlayer();
 
     }
+    public static void GiveLife()
+    {
+        Debug.Log("Noch ein Leben ist da");
+        gm.m_Life += 1;
+        livesText = GameObject.Find("LivesText").GetComponent<Text>();  //Anzeige die Anzahl der Leben;
+
+        livesText.text = "Lives: " + gm.m_Life;
+    }
 
     /*public static void IncrementScore (GameObject other)
         if (other.tag == "Collectible")
