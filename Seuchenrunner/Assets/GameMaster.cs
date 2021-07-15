@@ -55,7 +55,7 @@ public class GameMaster : MonoBehaviour
         if (other.tag == "Collectible")
         {
             collCounter++;
-            SoundManager.PlaySound("coins");                //Musik bei Sammeln der Münzen ;
+            SoundManager.PlaySound("coins");                //Musik bei Sammeln der Mï¿½nzen ;
             Destroy(other.gameObject);
             scoreText.text = "Score: " + collCounter.ToString();
             Debug.Log("Score: " + collCounter);

@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMove = 0f;
     public float runSpeed = 40f;
     bool jump = false;
-    bool jumping = false; // springt er gerade im Moment
+    bool jumping = false;
     private Rigidbody2D rb;
     private bool Climbing;
     private float inputHorizontal;
@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!jumping)
             {
-                SoundManager.PlaySound("jump");   //Musik beim Springen
+                SoundManager.PlaySound("jump");
             }
             jump = true;
             jumping = true;
