@@ -5,7 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField]
-    public static AudioClip soundCoins, soundEnemyHit, soundPlayerJump;
+    public static AudioClip soundCoins, soundEnemyHit, soundPlayerJump, soundWinner;
     static AudioSource audioSource;
 
     // Start is called before the first frame update
@@ -14,6 +14,7 @@ public class SoundManager : MonoBehaviour
         soundPlayerJump = Resources.Load<AudioClip>("SoundPlayerJump");
         soundEnemyHit = Resources.Load<AudioClip>("SoundEnemyHit");
         soundCoins = Resources.Load<AudioClip>("SoundCoins");
+        soundWinner = Resources.Load<AudioClip>("SoundApplause");
 
         audioSource = GetComponent<AudioSource>();
     }
@@ -30,6 +31,9 @@ public class SoundManager : MonoBehaviour
                 break;
             case "coins":
                 audioSource.PlayOneShot(soundCoins);
+                break;
+            case "finish":
+                audioSource.PlayOneShot(soundWinner);
                 break;
         }
     }

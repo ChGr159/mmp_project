@@ -19,13 +19,14 @@ public class LevelChanger : MonoBehaviour
     }
     public void LevelFade(int levelIndex)
     {
+
         levelToLoad = levelIndex;
         animator.SetTrigger("FadeOut");
-        
+
     }
 
     public void OnFadeComplete()
-{
-    SceneManager.LoadScene(levelToLoad);
-}
+    {
+        SceneManager.LoadScene(levelToLoad);
+    }
 }

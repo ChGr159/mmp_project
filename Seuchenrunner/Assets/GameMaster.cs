@@ -38,7 +38,6 @@ public class GameMaster : MonoBehaviour
     {
         Destroy(player.gameObject);
         gm.m_Life -= 1;
-        Debug.Log("Er hat " + gm.m_Life);
         livesText = GameObject.Find("LivesText").GetComponent<Text>();  //Anzeige die Anzahl der Leben;
         livesText.text = "Lives: " + gm.m_Life;                         // Ein Leben weg;
 
@@ -52,10 +51,8 @@ public class GameMaster : MonoBehaviour
     }
     public static void GiveLife()
     {
-        Debug.Log("Noch ein Leben ist da");
         gm.m_Life += 1;
         livesText = GameObject.Find("LivesText").GetComponent<Text>();  //Anzeige die Anzahl der Leben;
-
         livesText.text = "Lives: " + gm.m_Life;
     }
 

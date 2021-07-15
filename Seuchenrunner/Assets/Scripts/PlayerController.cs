@@ -121,7 +121,6 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            Debug.Log("HIT!!!!");
             SoundManager.PlaySound("hit");               //Musik beim Treffen den Gegner;
             GameObject player = GameObject.FindWithTag("Player");   //Sucht nach dem GameObject, das als Player markiert ist
             GameMaster.KillPlayer(player);                  // ruft Funktion des GameObjects "GameMaster" auf die den Spieler t�tet und Respawnen l�sst

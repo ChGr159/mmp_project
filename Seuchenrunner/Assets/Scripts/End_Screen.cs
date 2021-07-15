@@ -9,8 +9,9 @@ public class End_Screen : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player")
         {
+            SoundManager.PlaySound("finish");  // Applause at the end of the level
             Endscrn.gameObject.SetActive(true);
         }
     }
