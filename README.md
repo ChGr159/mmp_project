@@ -1,3 +1,6 @@
+kommentiert, explodierender Gegner, aufgabenteilung
+https://syncandshare.lrz.de/getlink/fi6AK74VhVfBaA3WiLubs5qG/1607
+
 -------kleine Features (enn nicht passt können wir sie raus)------
 
 -   Sound Effect beim Levelende hinzugefügt;
