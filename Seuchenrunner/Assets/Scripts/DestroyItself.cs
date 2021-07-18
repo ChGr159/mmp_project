@@ -5,8 +5,8 @@ using UnityEngine;
 //destroys explosion object
 public class DestroyItself : MonoBehaviour
 {
-    public void animEndDestroy()
+    public void Start()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, this.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
     }
 }

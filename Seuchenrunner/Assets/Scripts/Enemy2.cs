@@ -15,9 +15,10 @@ public class Enemy2 : MonoBehaviour
         {
 
             Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
-            Destroy(gameObject);
             SoundManager.PlaySound("explosion");
             Debug.Log("Gegner ist getötet");
+            Destroy(gameObject);
+            
         }
     }
 
