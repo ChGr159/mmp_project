@@ -45,10 +45,12 @@ public class PlayerMovement : MonoBehaviour
             if (!jumping)
             {
                 SoundManager.PlaySound("jump");
+                animator.SetBool("grounded", false);
+                animator.SetBool("Jump", true);
             }
             jump = true;
             jumping = true;
-            animator.SetBool("Jump", true);
+            
 
         }
 

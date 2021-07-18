@@ -13,12 +13,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Enemy
+  - Ground
   - Water
   - UI
   - Ladder
   - Trigger
-  - 
+  - Enemy
   - 
   - 
   - 
