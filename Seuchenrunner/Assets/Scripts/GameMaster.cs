@@ -54,7 +54,7 @@ public class GameMaster : MonoBehaviour
         gm.RespawnPlayer();
 
     }
-    
+
     //gives additional life point
     public static void GiveLife()
     {

@@ -13,19 +13,21 @@ public class Enemy2 : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
+
             Instantiate(Explosion, gameObject.transform.position, Quaternion.identity);
             Destroy(gameObject);
+            SoundManager.PlaySound("explosion");
             Debug.Log("Gegner ist getötet");
         }
     }
 
-    
-    
-    
-    
-    
 
-    
+
+
+
+
+
+
 
 
 }
