@@ -3,16 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//drone horizontal movement and functions
 public class Drone : MonoBehaviour
 {
-    //Zeug, das man für die Levels braucht
-    //public LevelManager levelManager;
 
-    //Positionen
+
+    //variables for positions
     private Vector3 startPos;
     private Vector3 newPos;
     private Vector3 tempPos;
 
+    //variables speed, patrolrange
     public float speed;
     public float patrolrange;
 
@@ -21,13 +22,9 @@ public class Drone : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //levelManager = FindObjectOfType<LevelManager>();
 
-        //aktuelle Position auslesen
+        //initialize at start position
         startPos = transform.position;
-
-        //zufällige Geschwindigkeit
-        //speed = Random.Range(5f, 10f);
 
         tempPos = startPos;
 
@@ -38,32 +35,24 @@ public class Drone : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Drone patroulliert
+        //Drone patrolling horizontally
         newPos = startPos;
         newPos.x = newPos.x + Mathf.PingPong(Time.time * speed, patrolrange);
         transform.position = newPos;
 
-        //Bewegung rechts
+        //flip Drone to face moving direction
+        //movement right
         if(newPos.x > tempPos.x)
         {
             sr.flipX = true;
         }
-        //Bewegung links
+        //movement left
         else
         {
             sr.flipX = false;
         }
 
-        //aktuelle Position abspeichern
         tempPos = newPos;
     }
 
-    /*void OnCollisionEnter2D(Collision2D other)
-    {
-        //bei Berührung mit Player Neustart (des aktuellen Levels)
-        if (other.gameObject.tag == "Player")
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-    }*/
 }

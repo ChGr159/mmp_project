@@ -130585,11 +130585,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7224981826787293659, guid: 94cbb3b604ac5324eb0d7bf27894d9af, type: 3}
       propertyPath: speed
-      value: 10
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7224981826787293659, guid: 94cbb3b604ac5324eb0d7bf27894d9af, type: 3}
       propertyPath: patrolrange
-      value: 10
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94cbb3b604ac5324eb0d7bf27894d9af, type: 3}
@@ -130754,16 +130754,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1964635030442349627, guid: b234485e8f8dbf3438d3c59a69c15430, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1964635030442349627, guid: b234485e8f8dbf3438d3c59a69c15430, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6f2edb0145b5e4a4eb4eb953c036858f, type: 3}
-    m_RemovedComponents:
-    - {fileID: 1964635030442349627, guid: b234485e8f8dbf3438d3c59a69c15430, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b234485e8f8dbf3438d3c59a69c15430, type: 3}
 --- !u!1001 &4374710472596838181
 PrefabInstance:

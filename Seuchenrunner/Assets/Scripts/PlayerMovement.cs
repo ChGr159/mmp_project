@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//controls player movement
 public class PlayerMovement : MonoBehaviour
 {
+    //variables
     public float ClimbingSpeed;
-    public PlayerController controller;             //using our CharakterScript
+    public PlayerController controller;             //using player controller script
     public Animator animator;
     float horizontalMove = 0f;
     public float runSpeed = 40f;
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     // Update is called once per frame
+    //update movement
     void Update()
     {
 
@@ -37,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("velocityX", Mathf.Abs(horizontalMove));
 
 
-        // L�sst unserern Charakter springen
+        //controls jumping
         if (Input.GetButtonDown("Jump"))
         {
             if (!jumping)
@@ -52,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
-    // Funktion die der Variablen "jump" ein false gibt, wenn der Charakter landet
+    //set jumping variable to false when landing
     public void OnLanding()
     {
         Debug.Log("Landed");

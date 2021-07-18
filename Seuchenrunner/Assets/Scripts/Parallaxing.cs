@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//controls background
 public class Parallaxing : MonoBehaviour
 {
-    public Transform[] backgrounds;                         //Array für alle Vorder und Hintergründe
-    private float[] parallaxScales;                         //Anteil der Bewegung der Kamera, um die Hintergründe zu verschieben
-    public float smoothing = 1f;                            //Wie weich die parallaxe wird
+    public Transform[] backgrounds;                         //array for fore- and backgrounds
+    private float[] parallaxScales;                         //movement of camera to move backgrounds
+    public float smoothing = 1f;                            //smoothness of parallaxis
 
-    private Transform cam;                                  //referenz auf die Main Kamera
-    private Vector3 previousCamPos;                         //die Position der Kamera im vorherigen Frame
+    private Transform cam;                                  //reference to main camera
+    private Vector3 previousCamPos;                         //camera position in previous frame
 
-    void Awake ()                                           //wird vor Start() aufgerufen
+    void Awake ()                                           //called before Start()
     {
         cam = Camera.main.transform;
     }
 
     // Start is called before the first frame update
+    //initialize camera position and background position
     void Start()
     {
         previousCamPos = cam.position;                      
@@ -29,6 +31,7 @@ public class Parallaxing : MonoBehaviour
     }
 
     // Update is called once per frame
+    //update camera and background positions
     void Update()
     {
         for (int i = 0; i < backgrounds.Length; i++)
@@ -45,7 +48,7 @@ public class Parallaxing : MonoBehaviour
 
         }
 
-        //Vorherige Kameraposition auf aktuelle Kameraposition setzen
+        //set previous camera position to new position
         previousCamPos = cam.position;
     }
 }

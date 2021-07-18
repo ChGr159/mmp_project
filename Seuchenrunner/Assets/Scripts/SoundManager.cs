@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//controls sound effects and background music
 public class SoundManager : MonoBehaviour
 {
+    //variables shown in Inspector
     [SerializeField]
     public static AudioClip soundCoins, soundEnemyHit, soundPlayerJump, soundWinner;
     static AudioSource audioSource;
 
     // Start is called before the first frame update
+    //load sound clips for effects
     void Start()
     {
         soundPlayerJump = Resources.Load<AudioClip>("SoundPlayerJump");
@@ -19,6 +22,7 @@ public class SoundManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    //play audio clips at triggered events
     public static void PlaySound(string clip)
     {
         switch (clip)
